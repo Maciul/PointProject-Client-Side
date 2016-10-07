@@ -6,35 +6,5 @@
 </h1>
   </div>
   <br>
-  <!-- <button ng-click="scrollTo('demoSection')" class='demoButton'> See Demo </button> -->
+
   <a href="#/dash"><button class='demoButton'> See Dashboard </button></a>
-
-<!-- </section>
-<section id='demoSection'>
-  <h1> Demo presentation will go on this page </h1>
-</section> -->
-
-<button ng-click='toggleSignup(form)' class='btn'> sign up </button>
-<button ng-click='toggleLogin(form)'class='btn btn2'> log in </button>
-
-<form ng-show="form.isLoginOpen" class='animate-show mainForm' name="loginForm" ng-submit="loginUser(email, password)">
-  <center>Login</center>
-  <label for="email"> E-mail </label>
-    <input type="text" name="email" ng-model="email">
-  <label for="password"> Password </label>
-    <input type="password" name="password" ng-model="password">
-  <button type="submit"> Login </button>
-</form>
-
-<form ng-show="form.isSignupOpen" class='mainForm' novalidate name="SignupForm" ng-submit="addUser(form)">
-  <center>Signup</center>
-  <label for="firstname"> First Name </label>
-    <input type="text" id="firstname" ng-model="form.firstname">
-  <label for="lastname"> Last Name </label>
-    <input type="text" id="lastname" ng-model="form.lastname">
-  <label for="email"> E-mail </label>
-    <input type="email" id="email" ng-model="form.email">
-  <label for="password"> Password </label>
-    <input type="password" id="password" ng-model="form.password">
-  <button type="submit"> Submit </button>
-</form>
