@@ -16,6 +16,8 @@ Technologies Used:
 ### Deployed URL
 https://thegreenzone.co/#/
 
-[Link to Database Repo](https://github.com/Maciul/TheGreenZone-Database)
+### Links to related repos
 
-[Link to Express API Repo](https://github.com/Maciul/TheGreenZone-Server)
+[Link to Server Side Repo](https://github.com/Maciul/TheGreenZone-Server)
+
+[Link to Database Repo](https://github.com/Maciul/TheGreenZone-Database)
