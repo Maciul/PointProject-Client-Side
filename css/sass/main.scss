@@ -12,24 +12,20 @@ header {
   color: $pointlightblue;
   display: flex;
   align-items: center;
-  background-color: #d9e8a5;
-  min-height: 10%;
-  h1 {
-    font-size: 1.5em;
-    display: inline;
-    font-family: 'Josefin Slab', serif;
-    color: $pointdark;
-  }
-
+  background-color: #324754;
+  height: 10vh;
   .logo {
-    width: 45px;
-    margin: 0px 20px;
+    width: auto;
+    height: 100%;
     }
+  h1 {
+    font-family: 'Josefin Slab', serif;
+    margin-left: 20px;
+  }
 }
 
 body {
   background-color: $pointdark;
-  // overflow: hidden;
 }
 
 main {
@@ -37,8 +33,9 @@ main {
   font-family: 'Raleway','Roboto', sans-serif;
   p {
     color: $pointdark;
-    font-size: 1.1em;
-
+  }
+  ul {
+    font-size: 14px;
   }
 }
 
@@ -46,5 +43,5 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 90vh;
 }

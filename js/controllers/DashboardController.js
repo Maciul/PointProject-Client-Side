@@ -16,13 +16,11 @@ angular
 
 
     $scope.formSubmit = function(form) {
-      console.log(form)
+      console.log(form.year)
       DashboardService.formSubmit(form).then(function(data) {
-        console.log(data.noData)
+        console.log(data)
         $scope.portfolio = data.noData;
         $scope.scienceData = data.result;
-        $scope.form = {};
-        $scope.form = {year : $scope.yearOptions[0].value};
       });
     };
 
@@ -37,11 +35,10 @@ angular
               left: 100
           },
           x: function(d){ return d.x; },
-          y: function(d){ return d.y; },
+          y: function(d){ return Math.round(d.y * 10) / 10; },
           useInteractiveGuideline: true,
           duration: 1500,
           forceY:([-10, 10]),
-
           color: d3.scale.category10().range(),
           dispatch: {
               stateChange: function(e){ console.log("stateChange"); },
@@ -50,12 +47,12 @@ angular
               tooltipHide: function(e){ console.log("tooltipHide"); }
           },
           xAxis: {
-              axisLabel: 'Target Year',
+              axisLabel: 'Year',
           },
           yAxis: {
-              axisLabel: 'Cumulative Reduction',
+              axisLabel: 'Cumulative Change in GHG Emissions Intensity',
               tickFormat: function(d) {
-                return d3.format(',.2f')(d);
+                return d3.format(',.f')(d) + '%';
               },
               axisLabelDistance: 10,
           },
@@ -67,17 +64,14 @@ angular
       },
       title: {
           enable: true,
-          text: 'Science Base vs Portfolio',
+          text: 'Investment Portfolio Relative to Science-Based Trajectory',
           css: {
             color: 'darkblue',
-            padding: '10px',
-            'font-size': '1.5rem',
-            position: 'absolute',
+            'font-size': '1.1rem',
             'margin-left': '10vw',
-
+            position: 'absolute',
+            'margin-top': '5vh'
           }
       },
-
   };
-
 }]);

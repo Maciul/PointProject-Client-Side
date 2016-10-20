@@ -1,6 +1,5 @@
-
 <section class='demoSection'>
-  <h1> Investors Dashboard </h1>
+  <h1> Investor Dashboard </h1>
 
 <!-- FORM FOR GRAPH INFO -->
 
@@ -8,76 +7,77 @@
 <div ng-controller='TypeaheadController' >
   <img src='images/formLoadSmall.gif' id='loadGif' ng-if='!exampleOptions' alt='loading'>
 
-<form ng-if='exampleOptions' class='demoForm' name='dashForm' ng-submit='formSubmit(form)'>
-  <article class='dashFormAlign'>
-    <div>
-  <label class='alignCenter' for='year'> Starting Year: </label>
-  <select ng-model='form.year' class='demoYear' required ng-options='option.value as option.name for option in yearOptions'></select>
-  <!-- <select ng-model='form.year' class='demoYear' required="required">
-    <option value='2007' ng-selected="selected"> 2007 </option>
-    <option value='2008'> 2008 </option>
-    <option value='2009'> 2009 </option>
-    <option value='2010'> 2010 </option>
-  </select> -->
-    <div>
-    <div class="demoFormAlign">
-      <label for='company1'> Company 1</label>
-      <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[0]' type='text' required>
+  <form ng-if='exampleOptions' class='demoForm' name='dashForm' ng-submit='formSubmit(form)'>
+    <div class='dashFormAlign formInstruction'>
+      <ul>
+        <li> Select a start year from the list </li>
+        <li> Type in up to 5 companies to create a portfolio </li>
+        <li> Type in the percentage of your portfolio for each company </li>
+      </ul>
     </div>
-    <div class="demoFormAlign">
-      <label for='weight1'> Weight</label>
-      <input ng-model='form.weight[1]' class='demoWeight' type='number'>
-    </div>
-    </div>
-    <div>
-    <div class="demoFormAlign">
-      <label for='company2'> Company 2</label>
-      <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[1]' type='text'>
-    </div>
-    <div class="demoFormAlign">
-      <label for='weight2'> Weight</label>
-      <input ng-model='form.weight[2]' class='demoWeight' type='number'>
-    </div>
-    </div>
-    <div>
-    <div class="demoFormAlign">
-      <label for='company3'> Company 3</label>
-      <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[2]' type='text'>
-    </div>
-    <div class="demoFormAlign">
-      <label for='weight3'> Weight</label>
-      <input ng-model='form.weight[3]' class='demoWeight' type='number'>
-    </div>
-    </div>
-    <div>
-    <div class="demoFormAlign">
-      <label for='company4'> Company 4</label>
-      <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[3]' type='text'>
-    </div>
-    <div class="demoFormAlign">
-      <label for='weight4'> Weight</label>
-      <input ng-model='form.weight[4]' class='demoWeight' type='number'>
-    </div>
-    </div>
-    <div>
-    <div class="demoFormAlign">
-      <label for='company5'> Company 5</label>
-      <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[4]' type='text'>
-    </div>
-    <div class="demoFormAlign">
-      <label for='weight5'> Weight</label>
-      <input ng-model='form.weight[5]' class='demoWeight' type='number'>
-    </div>
-  </div>
-<br>
-<button
- class='dashButton'
- ng-class='{hideButton: form.weight[1] + form.weight[2] + form.weight[3] + form.weight[4] + form.weight[5] !== 100}'
- type='submit'> Submit </button>
- <h6> *weights must equal 100% </h6>
- </div>
- </article>
-</form>
+    <article class='dashFormAlign'>
+      <div>
+        <label class='alignCenter' for='year'> select start year </label>
+        <select ng-model='form.year' class='demoYear' required ng-options='option.value as option.name for option in yearOptions'></select>
+        <div class="demoFormAlign">
+          <div>
+            <label for='company1'> Company</label>
+            <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[0]' type='text' required>
+          </div>
+          <div>
+            <label for='weight1'> Weight %</label>
+            <input ng-model='form.weight[1]' class='demoWeight' type='number'>
+          </div>
+        </div>
+        <div class="demoFormAlign">
+          <div>
+            <label for='company2'> Company</label>
+            <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[1]' type='text'>
+          </div>
+          <div>
+            <label for='weight2'> Weight %</label>
+            <input ng-model='form.weight[2]' class='demoWeight' type='number'>
+          </div>
+        </div>
+        <div class="demoFormAlign">
+          <div>
+            <label for='company3'> Company</label>
+            <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[2]' type='text'>
+          </div>
+          <div>
+            <label for='weight3'> Weight %</label>
+            <input ng-model='form.weight[3]' class='demoWeight' type='number'>
+          </div>
+        </div>
+        <div  class="demoFormAlign">
+          <div>
+            <label for='company4'> Company</label>
+            <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[3]' type='text'>
+          </div>
+          <div>
+            <label for='weight4'> Weight</label>
+            <input ng-model='form.weight[4]' class='demoWeight' type='number'>
+          </div>
+        </div>
+        <div  class="demoFormAlign">
+          <div>
+            <label for='company5'> Company</label>
+            <input class="sfTypeahead demoCompany" options="exampleOptions" datasets="exampleData" ng-model='form.data[4]' type='text'>
+          </div>
+          <div>
+            <label for='weight5'> Weight %</label>
+            <input ng-model='form.weight[5]' class='demoWeight' type='number'>
+          </div>
+        </div>
+        <br>
+        <button
+         class='dashButton'
+         ng-class='{hideButton: form.weight[1] + form.weight[2] + form.weight[3] + form.weight[4] + form.weight[5] !== 100}'
+         type='submit'> Submit </button>
+        <h6> *weights must equal 100% </h6>
+      </div>
+    </article>
+  </form>
 
 </div>
 <div ng-if='portfolio.length > 0' class='noDataDiv'>

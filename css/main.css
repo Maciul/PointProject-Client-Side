@@ -414,9 +414,6 @@ textarea {
     background-color: #112834;
     border: 1px solid #112834; }
 
-.section2 {
-  background-color: white; }
-
 .intro {
   height: 90vh;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/bb/Alternative_Energies.jpg");
@@ -439,28 +436,21 @@ textarea {
   display: block;
   background-color: #d9e8a5; }
 
-.mainForm {
-  position: fixed;
-  top: 100px;
-  right: 0px;
-  background-color: #d9e8a5;
-  padding: 20px;
-  color: #112834;
-  font-weight: 600; }
-
 .demoForm {
   background-color: rgba(17, 40, 52, 0.6);
   margin-left: 20px;
-  padding: 20px;
-  width: 50vw; }
+  padding: 5px;
+  width: 60vw; }
 
 label {
   margin-bottom: 10px;
+  margin-left: 10px;
   display: block; }
 
 input {
   display: block;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  margin-left: 10px; }
 
 select {
   display: block;
@@ -472,11 +462,11 @@ select {
 
 .demoSection {
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/bb/Alternative_Energies.jpg");
-  background-size: cover;
-  height: 90vh; }
+  background-size: cover; }
   .demoSection h1 {
     margin: 0;
-    padding: 20px; }
+    padding-top: 5px;
+    padding-bottom: 10px; }
 
 .demoCompany {
   border: none;
@@ -496,16 +486,9 @@ select {
   color: white; }
 
 .demoFormAlign {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
   margin-left: 10px; }
-
-.green {
-  color: green;
-  margin: 0; }
-
-.red {
-  color: red;
-  margin: 0; }
 
 .hideButton {
   opacity: 0.65;
@@ -520,6 +503,12 @@ select {
 .dashFormAlign {
   display: flex;
   justify-content: center; }
+
+.formInstruction {
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+  margin-top: -10px;
+  font-size: 18px; }
 
 .noDataDiv {
   background-color: rgba(17, 40, 52, 0.6);
@@ -547,6 +536,12 @@ select {
 .tt-suggestion.tt-cursor {
   color: #fff;
   background-color: #0097cf; }
+
+.dashed {
+  stroke-dasharray: 5,5; }
+
+.thick > path {
+  stroke-width: 3; }
 
 .ng-hide-add {
   animation: 0.5s slideOutRight ease; }
@@ -595,16 +590,14 @@ header {
   color: #A3D9D5;
   display: flex;
   align-items: center;
-  background-color: #d9e8a5;
-  min-height: 10%; }
-  header h1 {
-    font-size: 1.5em;
-    display: inline;
-    font-family: 'Josefin Slab', serif;
-    color: #112834; }
+  background-color: #324754;
+  height: 10vh; }
   header .logo {
-    width: 45px;
-    margin: 0px 20px; }
+    width: auto;
+    height: 100%; }
+  header h1 {
+    font-family: 'Josefin Slab', serif;
+    margin-left: 20px; }
 
 body {
   background-color: #112834; }
@@ -613,13 +606,14 @@ main {
   color: #d9e8a5;
   font-family: 'Raleway','Roboto', sans-serif; }
   main p {
-    color: #112834;
-    font-size: 1.1em; }
+    color: #112834; }
+  main ul {
+    font-size: 14px; }
 
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh; }
+  min-height: 90vh; }
 
 /*# sourceMappingURL=main.css.map */

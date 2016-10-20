@@ -24,7 +24,7 @@ angular
 // DATABASE CALL WITH SCIENCE BASE YEAR AND COMPANIES FROM FORM
 
       return $q.all(promises).then(function(data) {
-
+        console.log(data)
 // INSERT WEIGHTS INTO EACH COMPANY DATA
 
         for (var z = 1; z < data.length; z++) {
@@ -103,41 +103,65 @@ angular
           }
         };
 
+        getFirstCompanyData = function() {
+          earliestYear = 2050;
+          earliestValue = 0;
+          for (var i = 1; i < finalData.result.length; i++) {
+            if ( earliestYear > finalData.result[i].values[0].x) {
+              earliestYear = finalData.result[i].values[0].x;
+              earliestValue = finalData.result[i].values[0].y;
+            }
+          }
+          values.push({x: earliestYear, y: earliestValue});
+        };
+
         getPorfolioData = function() {
           if (finalData.result.length > 1) {
+            getFirstCompanyData();
             Object.keys(numerator).forEach(function(key) {
               values.push({x:key, y: (numerator[key] / denominator[key])});
             });
-              finalData.result.push({values: values, key: 'Portfolio'});
+              finalData.result.splice(1,0,{values: values, key: 'Performance', classed: 'thick'});
           }
         };
 
         getTargetData = function() {
           if (finalData.result.length > 1) {
+            var targetYearValue;
+            var targetLineStart;
             targetBaseYear = (Math.round(numeratorBaseYr / denominatorTarget));
-            console.log((numeratorGap / denominatorTarget) / 100);
             targetGap = (numeratorGap / denominatorTarget) / 100;
             targetYear = Math.round(numeratorTargetYr / denominatorTarget);
-            var targetYearValue;
+
             for (var i = 0; i < finalData.result[0].values.length; i++) {
               if (finalData.result[0].values[i].x == targetYear) {
                 targetYearValue = finalData.result[0].values[i].y * targetGap;
+              } else if (finalData.result[0].values[i].x == targetBaseYear) {
+                targetLineStart = finalData.result[0].values[i].y;
+              } else if (year > targetBaseYear) {
+                targetBaseYear = year;
+                targetLineStart = scienceBaseStart;
               }
             }
+            finalData.result.splice(1, 0,
+              { values:[{ x: targetBaseYear, y: targetLineStart},{ x: targetYear, y: targetYearValue}],
+                key: 'Target',
+                classed: 'thick'
+              });
+            }
+        };
 
-            finalData.result.push(
-              { values:[{ x: targetBaseYear, y: 0},{ x: targetYear, y: targetYearValue}],
-                key: 'Target'
-            });
-        }
+
+        getScienceBasisData = function() {
+          sciencebase.target.forEach(function(item, index) {
+          values.push({x: year + index, y: parseFloat(item)});
+        });
+        finalData.result.push({values: values, key: 'Science Basis', classed: 'dashed'});
+        values = [];
       };
 
 
-        sciencebase.target.forEach(function(item, index) {
-          values.push({x: year + index, y: parseFloat(item)});
-        });
-        finalData.result.push({values: values, key: 'Science Base'});
-        values = [];
+        getScienceBasisData();
 
 // LOOP THROUGH COMPANIES TO GET GRAPH DATA
 
@@ -159,6 +183,7 @@ angular
     }
         getPorfolioData();
         getTargetData();
+
         return finalData;
     });
     }
