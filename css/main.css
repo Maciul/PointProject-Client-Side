@@ -587,10 +587,10 @@ a {
   text-decoration: none; }
 
 header {
-  color: #A3D9D5;
+  color: #112834;
   display: flex;
   align-items: center;
-  background-color: #324754;
+  background-color: #d9e8a5;
   height: 10vh; }
   header .logo {
     width: auto;

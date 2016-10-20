@@ -9,10 +9,10 @@ a {
 }
 
 header {
-  color: $pointlightblue;
+  color: $pointdark;
   display: flex;
   align-items: center;
-  background-color: #324754;
+  background-color: $pointyellow;
   height: 10vh;
   .logo {
     width: auto;
