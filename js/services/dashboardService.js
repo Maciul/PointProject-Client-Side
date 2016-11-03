@@ -17,14 +17,14 @@ angular
         } else if (form.data[key]) {
           promises.push($http.get('https://point380.herokuapp.com/companies/'+form.data[key]));
         } else {
-          console.log('empty')
+
         }
       });
 
 // DATABASE CALL WITH SCIENCE BASE YEAR AND COMPANIES FROM FORM
 
       return $q.all(promises).then(function(data) {
-        console.log(data)
+
 // INSERT WEIGHTS INTO EACH COMPANY DATA
 
         for (var z = 1; z < data.length; z++) {
